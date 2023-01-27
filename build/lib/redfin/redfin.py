@@ -12,10 +12,9 @@ class Redfin:
     def meta_property(self, url, kwargs, page=False):
         if page:
             kwargs['pageType'] = 3
-        return self.meta_request('api/home/details/' + url, {
-            'accessLevel': 1,
-            **kwargs
-        })
+        return self.meta_request(
+            f'api/home/details/{url}', {'accessLevel': 1, **kwargs}
+        )
 
     def meta_request(self, url, kwargs):
         response = requests.get(
